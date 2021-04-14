@@ -1,2 +1,1 @@
-# provectus.github.io
-Provectus + Open Source
+# Provectus GitHub Pages site
