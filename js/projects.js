@@ -17,3 +17,9 @@ oss_projects['sak-kubeflow'] = {
   position: 3,
   background: 'github.png'
 };
+oss_projects['hydro-serving'] = {
+  blog_post: '',
+  featured: true,
+  position: 4,
+  background: 'github.png'
+};

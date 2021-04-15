@@ -1,4 +1,4 @@
-function getAllPages(urlPrefix, callback, page, results) {
+function getAllPages(name, urlPrefix, callback, page, results) {
   page = page || 1;
   results = results || [];
 
@@ -9,47 +9,48 @@ function getAllPages(urlPrefix, callback, page, results) {
       data.forEach(function(resultDatum) {
         results.push(resultDatum);
       });
-      getAllPages(urlPrefix, callback, page + 1, results);
+      getAllPages(name, urlPrefix, callback, page + 1, results);
     }
     else {
-      callback(results);
+      callback(results, name);
     }
   });
 }
 
-function getGithubRepos(callback, page, repos) {
-  getAllPages('https://api.github.com/users/provectus/repos', callback);
+function getGithubRepos(name, callback, page, repos) {
+  getAllPages(name, `https://api.github.com/users/${name}/repos`, callback);
 }
 
-function getGithubMembers(callback) {
-  getAllPages('https://api.github.com/orgs/provectus/members', callback);
+function getGithubMembers(name, callback) {
+  getAllPages(name, `https://api.github.com/orgs/${name}/members`, callback);
 }
 
-function loadRepositoryData(repoData) {
-  var org = new Organization('provectus');
+function loadRepositoryData(repoData, name) {
+  var org = new Organization(name);
   org.repos = [];
 
   repoData.forEach(function(repoDatum) {
     org.repos.push(new Repository(repoDatum));
   });
 
-  $('.projects .featured').empty();
-  $('.projects .not-featured').empty();
+  $(`.projects .featured .${name}`).empty();
 
-  org.addReposToContainer($('.projects .featured'), org.featuredRepos());
-  org.addReposToContainer($('.projects .not-featured'), org.regularRepos());
-
-  $('.project-count').html(org.forkedCount());
+  $(`.projects .${name}-img`).attr('href', `https://github.com/${name}`);
+  
+  $(`.projects .${name}-title`).html(name);
+  $(`.projects .${name}-title`).attr('href', `https://github.com/${name}`);
+  org.addReposToContainer($(`.projects .${name}`), org.featuredRepos());
+  $(`.projects .${name}-link`).html(`<a target="_blank" href="https://github.com/${name}" class="btn btn-primary">MORE ON GITHUB</a>`)
 }
 
-function loadMemberData(members) {
-  $('.dev-count').html(members.length);
+function loadMemberData(members, name) {
+  $(`.projects .${name}-dev-count`).html(members.length);
 }
 
 $(document).ready(function() {
-  getGithubRepos(loadRepositoryData);
-  getGithubMembers(loadMemberData);
+  getGithubRepos('provectus', loadRepositoryData);
+  //getGithubMembers('provectus', loadMemberData);
+
+  getGithubRepos('Hydrospheredata', loadRepositoryData);
+  //getGithubMembers('Hydrospheredata', loadMemberData);
 });
-
-
-// vim: sw=2 sts=2 expandtab
