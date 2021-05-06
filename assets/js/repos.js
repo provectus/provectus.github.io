@@ -72,7 +72,7 @@ Repository.prototype.getContainer = function(index) {
 Repository.prototype.featuredImage = function() {
   return [
     '<h2 class="alt-h3 mb-2">',
-      '<img class="octicon octicon-terminal fill-blue d-inline mr-2" width=28 src="/img/', (this.background() ? this.background() : 'github.png') ,'">',
+      '<img class="octicon octicon-terminal fill-blue d-inline mr-2" width=28 src="/assets/img/', (this.background() ? this.background() : 'github.png') ,'">',
       '<a class="text-bold" href="', this.url, '" target="_blank">', this.headerLogo(), this.name, '</a>',
     '</h2>'
   ].join('');

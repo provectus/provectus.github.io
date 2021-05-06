@@ -1,0 +1,30 @@
+# global settings
+title: "Provectus and Open Source"
+description: "Provectus company open source contributions"
+url: https://provectus.github.io
+relative_permalinks: false
+
+# build settings
+markdown: kramdown
+plugins:
+  - jekyll-avatar
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-coffeescript
+  - jekyll-sitemap
+  - jekyll-octicons
+
+sass:
+  style: :compressed
+  sass_dir: assets/css/
+  load_paths:
+    - node_modules/
+
+contributions:
+  - kubeflow
+  - feast-dev
+
+contributors:
+  - blvp
+  - germanosin
+  - RustamGimadiev
