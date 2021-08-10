@@ -56,7 +56,7 @@ Repository.prototype.getBlogLink = function() {
 
 Repository.prototype.getContainer = function(index) {
   var last = '';
-  if (index % 5 == 0) { last = 'last-in-row' }
+  if (index % 4 == 0) { last = 'last-in-row' }
 
   return [
     '<div class="clearfix gutter-spacious item-block ', this.language, ' ', this.classes(), ' ', last, '">',
