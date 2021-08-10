@@ -60,7 +60,7 @@ Repository.prototype.getContainer = function(index) {
 
   return [
     '<div class="clearfix gutter-spacious item-block ', this.language, ' ', this.classes(), ' ', last, '">',
-      '<div class="col-md-6 float-left">',
+      '<div>',
         this.featuredImage(),
         this.repoContent(),
         this.bottomLinks(),
@@ -86,7 +86,7 @@ Repository.prototype.headerLogo = function() {
 
 Repository.prototype.repoContent = function() {
   return [
-    '<div class="clearfix box-content">',
+    '<div class="clearfix box-content col-md-6">',
       '<p class="text-gray">', this.description, '</p>',
       '<div class="repo-info">',
         '<span><b><i class="octicon octicon-star"></i> ', this.watchers, '</b></span> | ',
