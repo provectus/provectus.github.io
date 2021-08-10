@@ -51,6 +51,9 @@ $(document).ready(function() {
   getGithubRepos('provectus', loadRepositoryData);
   //getGithubMembers('provectus', loadMemberData);
 
+  getGithubRepos('opendatadiscovery', loadRepositoryData);
+  // getGithubMembers('opendatadiscovery', loadMemberData);
+
   getGithubRepos('Hydrospheredata', loadRepositoryData);
   //getGithubMembers('Hydrospheredata', loadMemberData);
 });

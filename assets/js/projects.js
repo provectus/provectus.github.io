@@ -23,3 +23,15 @@ oss_projects['hydro-serving'] = {
   position: 4,
   background: 'github.png'
 };
+oss_projects['odd-platform'] = {
+  blog_post: '',
+  featured: true,
+  position: 5,
+  background: 'github.png'
+};
+oss_projects['opendatadiscovery-specification'] = {
+  blog_post: '',
+  featured: true,
+  position: 6,
+  background: 'github.png'
+};
